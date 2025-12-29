@@ -1,0 +1,736 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #FF0000;
+    --primary-black: #000000;
+    --dark-bg: #0a0a0a;
+    --dark-accent: #1a1a1a;
+    --text-white: #FFFFFF;
+    --text-gray: #CCCCCC;
+    --hover-red: #CC0000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--primary-black);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ナビゲーション */
+nav {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-red);
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+nav a:hover {
+    color: var(--primary-red);
+}
+
+/* ヒーローセクション */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-white) 0%, var(--primary-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* サーバーカード */
+.servers-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.server-card {
+    background: var(--dark-accent);
+    border: 2px solid var(--primary-red);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.server-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.server-card:hover::before {
+    left: 100%;
+}
+
+.server-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+    border-color: var(--hover-red);
+}
+
+.server-card h2 {
+    color: var(--primary-red);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.server-card p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.server-card .features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.server-card .features li {
+    padding: 0.5rem 0;
+    color: var(--text-white);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.server-card .features li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--primary-red);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-red);
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--primary-red);
+    transform: scale(1.05);
+}
+
+/* セクション */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-red);
+}
+
+/* フッター */
+footer {
+    background: var(--dark-bg);
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid var(--primary-red);
+    margin-top: 4rem;
+}
+
+footer p {
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--hover-red);
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .servers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ローディング */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-red);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* サーバーページ専用スタイル */
+.server-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 2rem;
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-bg) 100%);
+    position: relative;
+}
+
+.server-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+}
+
+.server-hero .invite-btn {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+}
+
+.info-section {
+    background: var(--dark-accent);
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-red);
+}
+
+.info-section h3 {
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.info-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-section ul li {
+    padding: 0.75rem 0;
+    color: var(--text-gray);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.info-section ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-red);
+}
+
+.info-section ul li:last-child {
+    border-bottom: none;
+}
+
+/* 関係URLセクション */
+.related-urls-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--dark-bg);
+    border-top: 2px solid var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.related-urls-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-red);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.urls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.url-card {
+    background: var(--dark-accent);
+    border: 2px solid var(--primary-red);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    animation: slideInUp 0.6s ease forwards;
+}
+
+.url-card:nth-child(1) { animation-delay: 0.1s; }
+.url-card:nth-child(2) { animation-delay: 0.2s; }
+.url-card:nth-child(3) { animation-delay: 0.3s; }
+.url-card:nth-child(4) { animation-delay: 0.4s; }
+.url-card:nth-child(5) { animation-delay: 0.5s; }
+.url-card:nth-child(6) { animation-delay: 0.6s; }
+.url-card:nth-child(7) { animation-delay: 0.7s; }
+.url-card:nth-child(8) { animation-delay: 0.8s; }
+
+.url-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.url-card:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.url-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--primary-red);
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease;
+}
+
+.url-card:hover::after {
+    opacity: 1;
+    transform: scale(1.05);
+    animation: borderPulse 1.5s ease infinite;
+}
+
+.url-card:hover {
+    transform: translateY(-15px) scale(1.05) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.4);
+    border-color: var(--hover-red);
+    background: linear-gradient(135deg, var(--dark-accent) 0%, rgba(255, 0, 0, 0.05) 100%);
+}
+
+.url-card a {
+    color: var(--text-white);
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.url-card a:hover {
+    color: var(--primary-red);
+    transform: translateX(10px);
+}
+
+.url-card a::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--primary-red);
+}
+
+.url-card a:hover::before {
+    left: -30px;
+    opacity: 1;
+}
+
+/* 作成者セクション */
+.creator-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-black) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.creator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+    animation: backgroundMove 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.creator-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+    animation: fadeInScale 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.creator-section p {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    animation: fadeInScale 1s ease 0.2s both;
+    position: relative;
+    z-index: 1;
+}
+
+.creator-section a {
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 1rem 2rem;
+    border: 2px solid var(--primary-red);
+    border-radius: 5px;
+    animation: fadeInScale 1s ease 0.4s both;
+}
+
+.creator-section a:hover {
+    background: var(--primary-red);
+    color: var(--text-white);
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+}
+
+/* 追加アニメーション */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes backgroundMove {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(20px, 20px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5);
+    }
+}
+
+/* ナビゲーションアニメーション強化 */
+nav {
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ヒーローアニメーション強化 */
+.hero h1 {
+    animation: fadeInUp 1s ease, glow 3s ease-in-out infinite 1s;
+}
+
+.hero p {
+    animation: fadeInUp 1s ease 0.2s both, float 3s ease-in-out infinite 1.2s;
+}
+
+/* サーバーカードアニメーション強化 */
+.server-card {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.server-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.server-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.server-card h2 {
+    animation: fadeInScale 0.6s ease 0.2s both;
+}
+
+/* ボタンアニメーション強化 */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* スクロールアニメーション */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* パーティクルエフェクト */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    animation: particleFloat 10s infinite;
+    opacity: 0.5;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+

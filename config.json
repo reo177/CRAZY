@@ -1,0 +1,84 @@
+{
+  "servers": [
+    {
+      "id": "reitei",
+      "name": "零帝",
+      "invite": "https://discord.gg/ygfdhPNU8e",
+      "description": "零帝の公式Discordサーバー",
+      "features": [
+        "コミュニティ交流",
+        "ゲーム配信",
+        "技術討論",
+        "イベント開催"
+      ],
+      "color": "#FF0000"
+    },
+    {
+      "id": "himajin",
+      "name": "暇人帝国",
+      "invite": "https://discord.gg/Rjekxj6Cea",
+      "description": "暇人帝国の公式Discordサーバー",
+      "features": [
+        "雑談コミュニティ",
+        "創作活動",
+        "音楽共有",
+        "技術交流"
+      ],
+      "color": "#FF0000"
+    },
+    {
+      "id": "yuuka",
+      "name": "遊華鯖！",
+      "invite": "https://discord.gg/AcBc6zAsYK",
+      "description": "遊華鯖！の公式Discordサーバー",
+      "owner": "遊華",
+      "features": [
+        "コミュニティ交流",
+        "ゲーム配信",
+        "イベント開催",
+        "雑談"
+      ],
+      "color": "#FF0000"
+    },
+    {
+      "id": "aoi",
+      "name": "あふぃす",
+      "invite": "https://discord.gg/Y4XAyMfkCu",
+      "description": "あふぃすの公式Discordサーバー",
+      "owner": "あおい",
+      "features": [
+        "コミュニティ交流",
+        "創作活動",
+        "音楽共有",
+        "雑談"
+      ],
+      "color": "#FF0000"
+    },
+    {
+      "id": "eimin",
+      "name": "永眠共和国",
+      "invite": "https://discord.gg/FZcejpyd",
+      "description": "永眠共和国の公式Discordサーバー",
+      "owner": "お主馬鹿か？",
+      "features": [
+        "コミュニティ交流",
+        "創作活動",
+        "技術討論",
+        "イベント開催"
+      ],
+      "color": "#FF0000"
+    }
+  ],
+  "creator": {
+    "name": "Lucitar",
+    "website": "https://www.lucitar.space",
+    "role": "Developer | Creator | Executive"
+  },
+  "theme": {
+    "primary": "#FF0000",
+    "secondary": "#000000",
+    "accent": "#1a1a1a",
+    "text": "#FFFFFF"
+  }
+}
+
